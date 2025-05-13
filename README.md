@@ -1,4 +1,4 @@
-### Hi there 👋
+### Hi there 👋 I am a third year Computer Science and Physics major interested in AI, SWE, Supply Chain, and learning new things! 😄
 
 <!--
 **bamarler/bamarler** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
