@@ -1,4 +1,4 @@
-### Hi there 👋 I am a third year Computer Science and Physics major interested in AI, SWE, Supply Chain, and learning new things! 😄
+### Hi there 👋 I am a third year Computer Science and Physics major at Northeastern University. I am always trying to learn new things, and right now I am interested in AI research! 😄
 
 <!--
 **bamarler/bamarler** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
