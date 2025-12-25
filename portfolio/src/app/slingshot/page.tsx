@@ -160,7 +160,7 @@ export default function SlingshotPage() {
 
     // Coordinate Mapping & Interaction Logic
     const mouse = Mouse.create(render.canvas)
-    mouse.pixelRatio = render.options.pixelRatio
+    mouse.pixelRatio = render.options.pixelRatio ?? 1
 
     Events.on(engine, 'beforeUpdate', () => {
       if (isActivatedRef.current) return
