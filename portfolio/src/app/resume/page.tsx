@@ -1,13 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import {
-  ArrowLeft,
-  Download,
-  Loader2,
-  ExternalLink,
-  FileText,
-} from 'lucide-react'
+import { ArrowLeft, Download, Loader2 } from 'lucide-react'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
 
@@ -70,42 +64,16 @@ export default function ResumePage() {
           </div>
         ) : resumeUrl ? (
           <div className="relative h-full w-full max-w-5xl bg-white shadow-2xl">
-            {/* Desktop: Embedding. Mobile: CTA to prevent the "broken iframe" look */}
-            <div className="hidden h-full w-full md:block">
-              <object
-                data={`${resumeUrl}#toolbar=0&navpanes=0&scrollbar=0`}
-                type="application/pdf"
-                className="h-full w-full"
-              >
-                <p>
-                  Your browser does not support PDFs.{' '}
-                  <a href={resumeUrl}>Download it instead.</a>
-                </p>
-              </object>
-            </div>
-
-            {/* Mobile / Fallback view */}
-            <div className="bg-bg-dark flex h-full flex-col items-center justify-center p-6 text-center md:hidden">
-              <div className="bg-primary-mid/20 border-primary-light/20 mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border">
-                <FileText className="text-primary-light" size={32} />
-              </div>
-              <h2 className="font-heading mb-2 text-xl font-bold">
-                Benjamin Marler Resume
-              </h2>
-              <p className="text-text-muted mb-6 text-sm">
-                Mobile browsers often block embedded PDFs for security. Tap
-                below to view the high-quality version.
+            <object
+              data={`${resumeUrl}#toolbar=0&navpanes=0&scrollbar=0`}
+              type="application/pdf"
+              className="h-full w-full"
+            >
+              <p>
+                Your browser does not support PDFs.{' '}
+                <a href={resumeUrl}>Download it instead.</a>
               </p>
-              <a
-                href={resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full bg-white px-6 py-3 font-bold text-black transition-all"
-              >
-                <ExternalLink size={18} />
-                <span>Open Full PDF</span>
-              </a>
-            </div>
+            </object>
           </div>
         ) : (
           <div className="glass-card max-w-md p-10 text-center">
