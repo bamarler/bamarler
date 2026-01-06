@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   title: 'Benjamin Marler | Software Engineer | CS & Physics @ Northeastern',
   description:
     'Building systems where physics meets code. Software Engineer and CS/Physics student seeking May-December 2026 co-op opportunities.',
+  metadataBase: new URL('https://bamarler.com'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Benjamin Marler | Software Engineer',
     description:
@@ -26,7 +30,57 @@ export const metadata: Metadata = {
     siteName: 'Benjamin Marler Portfolio',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/api/og',
+        alt: 'Benjamin Marler - Software Engineer',
+      },
+    ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Benjamin Marler | Software Engineer',
+    description:
+      'CS & Physics @ Northeastern. Building at the intersection of physics and code.',
+    images: ['/api/og'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Benjamin Marler',
+  jobTitle: 'Software Engineering Co-op',
+  description:
+    'Software Engineer and CS/Physics student at Northeastern University seeking May-December 2026 co-op opportunities.',
+  url: 'https://bamarler.com',
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'Northeastern University',
+  },
+  knowsAbout: [
+    'Software Engineering',
+    'Python',
+    'TypeScript',
+    'React',
+    'Physics',
+    'Machine Learning',
+  ],
+  sameAs: [
+    'https://linkedin.com/in/benjamin-marler',
+    'https://github.com/bamarler',
+  ],
 }
 
 export default function RootLayout({
@@ -36,6 +90,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={cn(
           'min-h-screen font-sans antialiased',
