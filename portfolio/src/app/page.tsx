@@ -3,7 +3,9 @@ import Hero from '@/components/sections/Hero'
 import About from '@/components/sections/About'
 import Experience from '@/components/sections/Experience'
 import Projects from '@/components/sections/Projects'
+import Skills from '@/components/sections/Skills'
 import SlingshotSection from '@/components/sections/SlingshotSection'
+import Contact from '@/components/sections/Contact'
 
 export default function Home() {
   return (
@@ -14,6 +16,7 @@ export default function Home() {
         <About />
         <Experience />
         <Projects />
+        <Skills />
 
         {/* Phase 4: The Slingshot Game - Centered and Fluid */}
         <section
@@ -23,6 +26,7 @@ export default function Home() {
           <SlingshotSection />
         </section>
       </main>
+      <Contact />
     </>
   )
 }
