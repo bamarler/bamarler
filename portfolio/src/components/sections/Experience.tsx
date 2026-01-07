@@ -75,11 +75,10 @@ export default function Experience() {
       ref={container}
       className="relative container mx-auto px-6 py-32"
     >
-      <div className="mb-24 ml-12">
-        <h2 className="font-heading text-4xl font-bold italic md:text-5xl">
+      <div className="mb-12 text-center lg:text-left">
+        <h2 className="font-heading text-4xl font-bold tracking-tight italic">
           Professional Path
         </h2>
-        <p className="text-text-muted mt-4 font-mono text-sm tracking-widest">{`// THE TRAJECTORY`}</p>
       </div>
 
       <div className="relative">
@@ -121,17 +120,18 @@ export default function Experience() {
                   </p>
                 </div>
 
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl md:w-80">
+                <div className="group/img bg-bg-dark relative aspect-[16/10] w-full shrink-0 overflow-hidden rounded-2xl border border-white/10 shadow-2xl transition-all duration-500 hover:shadow-[0_0_40px_rgba(245,158,11,0.3)] md:w-[40%]">
+                  {/* Amber aura on hover */}
+                  <div className="bg-accent-primary pointer-events-none absolute -inset-1 rounded-2xl opacity-0 blur-xl transition-opacity duration-500 group-hover/img:opacity-30" />
                   {imgData?.publicUrl && (
                     <Image
                       src={imgData.publicUrl}
                       alt={exp.company}
                       fill
-                      className="object-cover opacity-40 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
-                      sizes="(max-width: 768px) 100vw, 320px"
+                      className="relative z-10 object-cover transition-transform duration-700 group-hover/img:scale-105"
+                      sizes="(max-width: 768px) 100vw, 40vw"
                     />
                   )}
-                  <div className="from-bg-dark/60 absolute inset-0 bg-gradient-to-t to-transparent" />
                 </div>
               </div>
             )

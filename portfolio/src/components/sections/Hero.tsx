@@ -3,7 +3,8 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useRef } from 'react'
-import { MoveRight, Play, MousePointer2 } from 'lucide-react'
+import { MoveRight, Play, Hand, Mouse } from 'lucide-react'
+import Link from 'next/link'
 import Image from 'next/image'
 import { supabase } from '@/lib/supabase'
 
@@ -95,7 +96,7 @@ export default function Hero() {
   return (
     <section
       ref={container}
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-20"
+      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden pt-0 md:pt-20"
     >
       {/* Enhanced Background Physics SVG */}
       <div className="pointer-events-none absolute inset-0 z-0 opacity-20">
@@ -123,7 +124,7 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="relative z-10 container mx-auto flex flex-col items-center justify-center gap-16 px-6 md:flex-row md:gap-24">
+      <div className="relative z-10 container mx-auto flex flex-col items-center justify-center gap-8 px-6 md:flex-row md:gap-24">
         {/* Left: Image */}
         <div className="hero-image relative shrink-0">
           <div className="from-primary-mid/40 to-accent-primary/30 absolute -inset-8 rounded-full bg-gradient-to-tr opacity-50 blur-3xl" />
@@ -155,23 +156,23 @@ export default function Hero() {
             Seeking May-Dec 2026 Co-op
           </div>
 
-          <div className="hero-tagline max-w-xl">
+          <div className="hero-tagline hidden max-w-xl md:block">
             <p className="text-text-muted font-mono text-lg leading-relaxed tracking-tight md:text-2xl">
               {`// Engineering systems where physics meets agentic intelligence.`}
             </p>
           </div>
 
           <div className="hero-btns flex flex-wrap justify-center gap-5 pt-4 md:justify-start">
-            <a
-              href="#experience"
+            <Link
+              href="/resume"
               className="bg-primary-mid hover:bg-primary-light group shadow-primary-dark/40 flex items-center gap-3 rounded-full px-10 py-4 font-bold shadow-2xl transition-all"
             >
-              View Experience{' '}
+              Resume{' '}
               <MoveRight
                 size={20}
                 className="transition-transform group-hover:translate-x-1"
               />
-            </a>
+            </Link>
 
             <a
               href="#game"
@@ -189,8 +190,13 @@ export default function Hero() {
         <span className="font-mono text-[10px] tracking-[0.3em] uppercase">
           Scroll
         </span>
-        <div className="flex h-10 w-6 justify-center rounded-full border-2 border-white/20 p-1">
+        {/* Desktop: Mouse scroll wheel */}
+        <div className="hidden h-10 w-6 justify-center rounded-full border-2 border-white/20 p-1 md:flex">
           <div className="bg-primary-light h-2 w-1 animate-bounce rounded-full" />
+        </div>
+        {/* Mobile: Hand swipe */}
+        <div className="flex md:hidden">
+          <Hand size={24} className="text-white/40" />
         </div>
       </div>
     </section>
