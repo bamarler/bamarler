@@ -51,7 +51,7 @@ export default function Projects() {
                 <div className="bg-accent-primary pointer-events-none absolute -inset-1 rounded-2xl opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-30" />
 
                 <div className="bg-bg-dark relative z-10 flex flex-col rounded-2xl border border-white/10 p-4 shadow-2xl transition-all duration-500">
-                  <div className="bg-bg-dark mb-6 aspect-video overflow-hidden rounded-lg border border-white/10">
+                  <div className="relative bg-bg-dark mb-6 aspect-video overflow-hidden rounded-lg border border-white/10">
                     {imgData?.publicUrl && (
                       <Image
                         src={imgData.publicUrl}
