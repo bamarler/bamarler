@@ -30,27 +30,30 @@ export default function About() {
 
             <div className="text-text-muted space-y-6 text-lg leading-relaxed">
               <p>
-                I split my brain between{' '}
-                <strong className="text-white">Computer Science</strong> and{' '}
-                <strong className="text-white">Physics</strong> at Northeastern
-                University. This duality drives me to look for the underlying
-                laws in software—optimizing for efficiency like a thermodynamics
-                problem.
+                I&apos;m a junior studying{' '}
+                <strong className="text-primary-light">Computer Science</strong>{' '}
+                and <strong className="text-primary-light">Physics</strong> with
+                a minor in{' '}
+                <strong className="text-primary-light">Mathematics</strong> at
+                Northeastern University. My passion lies in building intelligent
+                systems that can understand and interact with the world around
+                them.
               </p>
               <p>
-                Currently, I&apos;m focused on{' '}
-                <strong className="text-primary-light">agentic AI</strong> and
-                robust ETL pipelines. My work focuses on building the
-                infrastructure that allows intelligence to interact with
-                complex, unstructured data reliably.
+                Currently, I&apos;m interested in{' '}
+                <strong className="text-accent-primary">
+                  Reinforcement Learning
+                </strong>{' '}
+                and
+                <strong className="text-accent-primary">Physics</strong>{' '}
+                simulations for policy transfer learning. My previous work
+                focuses on traditional software engineering and data pipelines.
               </p>
               <p>
                 When I&apos;m away from the keyboard, you&apos;ll find me
                 competing on the{' '}
-                <strong className="text-accent-primary">
-                  Ultimate Frisbee
-                </strong>{' '}
-                field, mountain biking, or active within DKE.
+                <strong className="text-primary-light">Ultimate Frisbee</strong>{' '}
+                field, traveling to new places, or exploring the outdoors.
               </p>
             </div>
 
@@ -59,10 +62,10 @@ export default function About() {
                 Ultimate Frisbee
               </span>
               <span className="border-primary-light/20 bg-primary-light/5 rounded-full border px-4 py-1.5">
-                DKE
+                Travel
               </span>
               <span className="border-primary-light/20 bg-primary-light/5 rounded-full border px-4 py-1.5">
-                Mountain Biking
+                Racket Sports
               </span>
             </div>
           </div>
@@ -70,10 +73,10 @@ export default function About() {
           {/* Photo - first on mobile, second on desktop */}
           <div
             ref={photoRef}
-            className="group relative order-1 aspect-video overflow-hidden rounded-2xl border border-white/10 bg-bg-dark shadow-2xl ring-1 ring-white/10 transition-all duration-500 hover:shadow-[0_0_40px_rgba(245,158,11,0.3)] lg:order-2"
+            className="group bg-bg-dark relative order-1 aspect-video overflow-hidden rounded-2xl border border-white/10 shadow-2xl ring-1 ring-white/10 transition-all duration-500 hover:shadow-[0_0_40px_rgba(245,158,11,0.3)] lg:order-2"
           >
             {/* Animated glow effect on hover */}
-            <div className="pointer-events-none absolute -inset-1 rounded-2xl bg-accent-primary opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-30" />
+            <div className="bg-accent-primary pointer-events-none absolute -inset-1 rounded-2xl opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-30" />
 
             {aboutPhoto && (
               <Image
