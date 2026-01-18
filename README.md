@@ -1,6 +1,6 @@
-### Hi there 👋 I am a third year Computer Science and Physics major at Northeastern University. I am always trying to learn new things, and right now I am interested in AI research! 😄
+### Hi there 👋 I am a third year Computer Science and Physics major at Northeastern University. I am always trying to learn new things and am passionate about Machine and Reinforcement Learning!
 
-You can learn more about me at my LinkedIn here: <https://www.linkedin.com/in/benjamin-marler>
+You can learn more about me at my portfolio site here: <https://bamarler.com>
 
 <!--
 **bamarler/bamarler** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
