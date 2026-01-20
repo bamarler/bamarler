@@ -1,0 +1,3 @@
+/home/bamarler/Github/bamarler/portfolio/slingshot-engine/build/CMakeFiles/slingshot.dir
+/home/bamarler/Github/bamarler/portfolio/slingshot-engine/build/CMakeFiles/edit_cache.dir
+/home/bamarler/Github/bamarler/portfolio/slingshot-engine/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,24 @@
+# ninja log v5
+100	660	1768870302747528060	CMakeFiles/slingshot.dir/src/game/game.cpp.o	b67b6f2fa0d79742
+100	660	1768870302749023148	CMakeFiles/slingshot.dir/src/game/slingshot.cpp.o	6a13deeb56208bff
+0	307	1768870491239182768	build.ninja	102b2f4a8c46284c
+99	818	1768870302905531028	CMakeFiles/slingshot.dir/src/physics/world.cpp.o	4947c7e7ab919a72
+98	990	1768870303075534220	CMakeFiles/slingshot.dir/src/main.cpp.o	8d6808930fce3d9a
+1072	2625	1768868336000000000	slingshot.js	b67fedb0595e3b59
+99	668	1768870302755528211	CMakeFiles/slingshot.dir/src/core/renderer.cpp.o	a33a8817695092e4
+1	320	1768870491239182768	build.ninja	102b2f4a8c46284c
+2	790	1768870492025680504	CMakeFiles/slingshot.dir/src/main.cpp.o	8d6808930fce3d9a
+790	2219	1768870493000000000	slingshot.js	b67fedb0595e3b59
+88	785	1768871411133868454	CMakeFiles/slingshot.dir/src/physics/world.cpp.o	4947c7e7ab919a72
+87	921	1768871411269869451	CMakeFiles/slingshot.dir/src/main.cpp.o	8d6808930fce3d9a
+921	2432	1768871412000000000	slingshot.js	b67fedb0595e3b59
+98	1132	1768872136309433029	CMakeFiles/slingshot.dir/src/main.cpp.o	8d6808930fce3d9a
+1133	2803	1768872137000000000	slingshot.js	b67fedb0595e3b59
+3	682	1768872243604796118	CMakeFiles/slingshot.dir/src/physics/world.cpp.o	4947c7e7ab919a72
+3	819	1768872243740795440	CMakeFiles/slingshot.dir/src/main.cpp.o	8d6808930fce3d9a
+819	2132	1768872245000000000	slingshot.js	b67fedb0595e3b59
+91	2277	1768872582737882688	CMakeFiles/slingshot.dir/src/main.cpp.o	8d6808930fce3d9a
+2277	3980	1768872584000000000	slingshot.js	b67fedb0595e3b59
+98	895	1768872674006837848	CMakeFiles/slingshot.dir/src/physics/world.cpp.o	4947c7e7ab919a72
+97	2122	1768872675231837677	CMakeFiles/slingshot.dir/src/main.cpp.o	8d6808930fce3d9a
+2122	3765	1768872676000000000	slingshot.js	b67fedb0595e3b59

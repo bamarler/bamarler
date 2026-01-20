@@ -1,0 +1,10 @@
+{
+  "id": 1,
+  "name": "First Contact",
+  "tutorial": true,
+  "spawn": [200, 700],
+  "goal": [1400, 150],
+  "entities": [
+    { "type": "planet", "pos": [800, 450], "pinned": true }
+  ]
+}
