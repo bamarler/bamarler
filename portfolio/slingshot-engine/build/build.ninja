@@ -88,7 +88,7 @@ build CMakeFiles/slingshot.dir/src/game/slingshot.cpp.o: CXX_COMPILER__slingshot
 # Link the executable slingshot.js
 
 build slingshot.js: CXX_EXECUTABLE_LINKER__slingshot_ CMakeFiles/slingshot.dir/src/main.cpp.o CMakeFiles/slingshot.dir/src/core/renderer.cpp.o CMakeFiles/slingshot.dir/src/physics/world.cpp.o CMakeFiles/slingshot.dir/src/game/game.cpp.o CMakeFiles/slingshot.dir/src/game/slingshot.cpp.o
-  LINK_FLAGS = -sUSE_SDL=2 -sUSE_WEBGL2=1 -sALLOW_MEMORY_GROWTH=1 -sEXPORT_ES6=1 -sMODULARIZE=1 -sEXPORT_NAME='SlingshotModule' -sENVIRONMENT=web -sINVOKE_RUN=0 --bind -O2 --preload-file /home/bamarler/Github/bamarler/portfolio/slingshot-engine/levels@/levels
+  LINK_FLAGS = -sUSE_SDL=2 -sUSE_WEBGL2=1 -sALLOW_MEMORY_GROWTH=1 -sMODULARIZE=1 -sEXPORT_NAME='SlingshotModule' -sENVIRONMENT=web -sINVOKE_RUN=0 --bind -O2 --preload-file /home/bamarler/Github/bamarler/portfolio/slingshot-engine/levels@/levels
   OBJECT_DIR = CMakeFiles/slingshot.dir
   POST_BUILD = :
   PRE_LINK = :

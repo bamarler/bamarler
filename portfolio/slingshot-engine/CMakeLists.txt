@@ -38,7 +38,6 @@ if(EMSCRIPTEN)
         "-sUSE_SDL=2"
         "-sUSE_WEBGL2=1"
         "-sALLOW_MEMORY_GROWTH=1"
-        "-sEXPORT_ES6=1"
         "-sMODULARIZE=1"
         "-sEXPORT_NAME='SlingshotModule'"
         "-sENVIRONMENT=web"

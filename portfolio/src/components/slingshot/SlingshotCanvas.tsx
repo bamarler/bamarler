@@ -19,6 +19,10 @@ declare global {
   interface Window {
     onSlingshotWin?: (levelId: number, attempts: number) => void
     onSlingshotLose?: () => void
+    SlingshotModule?: (config: {
+      canvas: HTMLCanvasElement | null
+      locateFile: (path: string) => string
+    }) => Promise<SlingshotModule>
   }
 }
 
@@ -58,13 +62,30 @@ export default function SlingshotCanvas({
 
     const loadModule = async () => {
       try {
-        // Dynamic import for ES module (built by Emscripten, served from public/wasm)
-        // @ts-expect-error - WASM module loaded at runtime from public folder
-        const { default: SlingshotModule } = await import('/wasm/slingshot.js')
+        // Load WASM module via script tag to bypass bundler resolution
+        await new Promise<void>((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = '/wasm/slingshot.js'
+          script.async = true
+          script.onload = () => resolve()
+          script.onerror = () => reject(new Error('Failed to load WASM script'))
+          document.head.appendChild(script)
+        })
+
+        // Wait for module to be available on window
+        let attempts = 0
+        while (!window.SlingshotModule && attempts < 50) {
+          await new Promise((r) => setTimeout(r, 100))
+          attempts++
+        }
+
+        if (!window.SlingshotModule) {
+          throw new Error('SlingshotModule not found on window')
+        }
 
         if (!mounted) return
 
-        const slingshotModule = await SlingshotModule({
+        const slingshotModule = await window.SlingshotModule({
           canvas: canvasRef.current,
           locateFile: (path: string) => `/wasm/${path}`,
         })
