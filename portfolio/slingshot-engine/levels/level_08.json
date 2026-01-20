@@ -1,0 +1,16 @@
+{
+  "id": 8,
+  "name": "Asteroid Belt",
+  "tutorial": false,
+  "spawn": [200, 800],
+  "goal": [1400, 100],
+  "entities": [
+    { "type": "sun", "pos": [800, 450], "pinned": true, "id": "star" },
+    { "type": "asteroid", "pos": [1050, 450], "pinned": false, "orbits": "star" },
+    { "type": "asteroid", "pos": [550, 450], "pinned": false, "orbits": "star" },
+    { "type": "asteroid", "pos": [800, 700], "pinned": false, "orbits": "star" },
+    { "type": "asteroid", "pos": [800, 200], "pinned": false, "orbits": "star" },
+    { "type": "asteroid", "pos": [950, 300], "pinned": false, "orbits": "star" },
+    { "type": "asteroid", "pos": [650, 600], "pinned": false, "orbits": "star" }
+  ]
+}

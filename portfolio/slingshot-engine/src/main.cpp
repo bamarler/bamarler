@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <fstream>
 
 #include "config/colors.hpp"
 #include "config/display.hpp"
@@ -36,6 +37,7 @@ namespace
     float g_offsetX = 0.0f;
     float g_offsetY = 0.0f;
     bool g_needsLandscape = false;
+    int g_totalLevels = 0;
 
     Renderer g_renderer;
     PhysicsWorld g_world;
@@ -43,6 +45,27 @@ namespace
     Slingshot g_slingshot;
 
     Vec2 g_spawnPos{200, 700};
+}
+
+int countLevelFiles()
+{
+    int count = 0;
+    for (int i = 1; i <= 100; ++i)
+    {
+        std::string path = "/levels/level_" +
+            std::string(i < 10 ? "0" : "") +
+            std::to_string(i) + ".json";
+        std::ifstream file(path);
+        if (file.good())
+        {
+            count++;
+        }
+        else
+        {
+            break;
+        }
+    }
+    return count;
 }
 
 Vec2 screenToWorld(int screenX, int screenY)
@@ -357,9 +380,10 @@ void startGame()
                 }
             }); });
 
+        g_totalLevels = countLevelFiles();
         g_initialized = true;
         loadLevel(1);
-        std::cout << "Slingshot game initialized!" << std::endl;
+        std::cout << "Slingshot game initialized! Found " << g_totalLevels << " levels." << std::endl;
     }
 
     emscripten_set_main_loop(mainLoop, 0, 0);
@@ -416,6 +440,11 @@ void retryLevel()
     g_game.setState(GameState::Aiming);
 }
 
+int getTotalLevels()
+{
+    return g_totalLevels;
+}
+
 EMSCRIPTEN_BINDINGS(slingshot)
 {
     emscripten::function("startGame", &startGame);
@@ -428,4 +457,5 @@ EMSCRIPTEN_BINDINGS(slingshot)
     emscripten::function("getVersion", &getVersion);
     emscripten::function("needsLandscape", &needsLandscape);
     emscripten::function("dismissRules", &dismissRules);
+    emscripten::function("getTotalLevels", &getTotalLevels);
 }

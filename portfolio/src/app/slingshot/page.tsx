@@ -20,13 +20,18 @@ interface SlingshotModule {
   getAttempts: () => number
   getCurrentLevel: () => number
   getGameState: () => number
+  getTotalLevels: () => number
   dismissRules: () => void
 }
+
+const MAX_LEVEL_KEY = 'slingshot_max_level'
 
 export default function SlingshotPage() {
   const [gameState, setGameState] = useState<number>(GameState.Rules)
   const [attempts, setAttempts] = useState(0)
   const [levelId, setLevelId] = useState(1)
+  const [totalLevels, setTotalLevels] = useState(1)
+  const [maxUnlockedLevel, setMaxUnlockedLevel] = useState(1)
   const [showLeaderboard, setShowLeaderboard] = useState(false)
   const [showNamePrompt, setShowNamePrompt] = useState(false)
   const [pendingWin, setPendingWin] = useState<{
@@ -37,6 +42,14 @@ export default function SlingshotPage() {
   const moduleRef = useRef<SlingshotModule | null>(null)
   const { playerId, setPlayerName, saveAttempt, needsName } =
     useSlingshotGame()
+
+  // Load max unlocked level from localStorage
+  useEffect(() => {
+    const stored = localStorage.getItem(MAX_LEVEL_KEY)
+    if (stored) {
+      setMaxUnlockedLevel(parseInt(stored, 10))
+    }
+  }, [])
 
   // Lock scroll
   useEffect(() => {
@@ -59,16 +72,23 @@ export default function SlingshotPage() {
   }, [])
 
   const handleWin = useCallback(
-    async (levelId: number, attempts: number) => {
+    async (wonLevelId: number, wonAttempts: number) => {
+      // Unlock next level
+      const nextLevel = wonLevelId + 1
+      if (nextLevel > maxUnlockedLevel) {
+        setMaxUnlockedLevel(nextLevel)
+        localStorage.setItem(MAX_LEVEL_KEY, nextLevel.toString())
+      }
+
       if (needsName) {
         // Prompt for name before saving
-        setPendingWin({ levelId, attempts })
+        setPendingWin({ levelId: wonLevelId, attempts: wonAttempts })
         setShowNamePrompt(true)
       } else if (playerId) {
-        await saveAttempt(levelId, attempts)
+        await saveAttempt(wonLevelId, wonAttempts)
       }
     },
-    [needsName, playerId, saveAttempt],
+    [needsName, playerId, saveAttempt, maxUnlockedLevel],
   )
 
   const handleNameSubmit = useCallback(
@@ -99,8 +119,19 @@ export default function SlingshotPage() {
     moduleRef.current?.dismissRules()
   }, [])
 
+  const handleNextLevel = useCallback(() => {
+    if (levelId < totalLevels) {
+      moduleRef.current?.setLevel(levelId + 1)
+    }
+  }, [levelId, totalLevels])
+
+  const handleSelectLevel = useCallback((level: number) => {
+    moduleRef.current?.setLevel(level)
+  }, [])
+
   const handleLoad = useCallback((module: SlingshotModule) => {
     moduleRef.current = module
+    setTotalLevels(module.getTotalLevels())
   }, [])
 
   return (
@@ -115,8 +146,12 @@ export default function SlingshotPage() {
         gameState={gameState}
         attempts={attempts}
         levelId={levelId}
+        totalLevels={totalLevels}
+        maxUnlockedLevel={maxUnlockedLevel}
         onReset={handleReset}
         onDismissRules={handleDismissRules}
+        onNextLevel={levelId < totalLevels ? handleNextLevel : undefined}
+        onSelectLevel={handleSelectLevel}
       />
 
       {/* Leaderboard Button */}

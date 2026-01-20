@@ -1,0 +1,14 @@
+{
+  "id": 10,
+  "name": "Void Walker",
+  "tutorial": false,
+  "spawn": [200, 800],
+  "goal": [1400, 100],
+  "entities": [
+    { "type": "singularity", "pos": [500, 350], "pinned": true },
+    { "type": "singularity", "pos": [1100, 550], "pinned": true },
+    { "type": "sun", "pos": [800, 450], "pinned": true },
+    { "type": "planet", "pos": [350, 600], "pinned": true },
+    { "type": "planet", "pos": [1250, 300], "pinned": true }
+  ]
+}

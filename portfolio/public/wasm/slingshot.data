@@ -8,3 +8,114 @@
     { "type": "planet", "pos": [800, 450], "pinned": true }
   ]
 }
+{
+  "id": 2,
+  "name": "Binary Stars",
+  "tutorial": false,
+  "spawn": [150, 450],
+  "goal": [1450, 450],
+  "entities": [
+    { "type": "sun", "pos": [600, 300], "pinned": true },
+    { "type": "sun", "pos": [1000, 600], "pinned": true }
+  ]
+}
+{
+  "id": 3,
+  "name": "Gravity Well",
+  "tutorial": false,
+  "spawn": [200, 750],
+  "goal": [1400, 150],
+  "entities": [
+    { "type": "sun", "pos": [800, 450], "pinned": true },
+    { "type": "planet", "pos": [450, 300], "pinned": true },
+    { "type": "planet", "pos": [1150, 600], "pinned": true }
+  ]
+}
+{
+  "id": 4,
+  "name": "The Corridor",
+  "tutorial": false,
+  "spawn": [200, 450],
+  "goal": [1400, 450],
+  "entities": [
+    { "type": "sun", "pos": [800, 450], "pinned": true },
+    { "type": "asteroid", "pos": [500, 250], "pinned": true },
+    { "type": "asteroid", "pos": [550, 650], "pinned": true },
+    { "type": "asteroid", "pos": [1050, 250], "pinned": true },
+    { "type": "asteroid", "pos": [1100, 650], "pinned": true }
+  ]
+}
+{
+  "id": 5,
+  "name": "Orbital Dance",
+  "tutorial": false,
+  "spawn": [150, 750],
+  "goal": [1450, 150],
+  "entities": [
+    { "type": "sun", "pos": [800, 450], "pinned": true, "id": "center_sun" },
+    { "type": "planet", "pos": [1100, 450], "pinned": false, "orbits": "center_sun" }
+  ]
+}
+{
+  "id": 6,
+  "name": "Binary System",
+  "tutorial": false,
+  "spawn": [200, 450],
+  "goal": [1400, 450],
+  "entities": [
+    { "type": "sun", "pos": [800, 450], "pinned": true, "id": "primary" },
+    { "type": "sun", "pos": [1050, 450], "pinned": false, "orbits": "primary" }
+  ]
+}
+{
+  "id": 7,
+  "name": "Event Horizon",
+  "tutorial": false,
+  "spawn": [200, 450],
+  "goal": [1400, 450],
+  "entities": [
+    { "type": "singularity", "pos": [800, 450], "pinned": true }
+  ]
+}
+{
+  "id": 8,
+  "name": "Asteroid Belt",
+  "tutorial": false,
+  "spawn": [200, 800],
+  "goal": [1400, 100],
+  "entities": [
+    { "type": "sun", "pos": [800, 450], "pinned": true, "id": "star" },
+    { "type": "asteroid", "pos": [1050, 450], "pinned": false, "orbits": "star" },
+    { "type": "asteroid", "pos": [550, 450], "pinned": false, "orbits": "star" },
+    { "type": "asteroid", "pos": [800, 700], "pinned": false, "orbits": "star" },
+    { "type": "asteroid", "pos": [800, 200], "pinned": false, "orbits": "star" },
+    { "type": "asteroid", "pos": [950, 300], "pinned": false, "orbits": "star" },
+    { "type": "asteroid", "pos": [650, 600], "pinned": false, "orbits": "star" }
+  ]
+}
+{
+  "id": 9,
+  "name": "Dark Orbit",
+  "tutorial": false,
+  "spawn": [200, 800],
+  "goal": [1400, 100],
+  "entities": [
+    { "type": "singularity", "pos": [800, 450], "pinned": true, "id": "void" },
+    { "type": "planet", "pos": [1100, 450], "pinned": false, "orbits": "void" },
+    { "type": "planet", "pos": [500, 450], "pinned": false, "orbits": "void" }
+  ]
+}
+{
+  "id": 10,
+  "name": "Void Walker",
+  "tutorial": false,
+  "spawn": [200, 800],
+  "goal": [1400, 100],
+  "entities": [
+    { "type": "singularity", "pos": [500, 350], "pinned": true },
+    { "type": "singularity", "pos": [1100, 550], "pinned": true },
+    { "type": "sun", "pos": [800, 450], "pinned": true },
+    { "type": "planet", "pos": [350, 600], "pinned": true },
+    { "type": "planet", "pos": [1250, 300], "pinned": true }
+  ]
+}

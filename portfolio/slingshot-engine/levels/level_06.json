@@ -1,0 +1,11 @@
+{
+  "id": 6,
+  "name": "Binary System",
+  "tutorial": false,
+  "spawn": [200, 450],
+  "goal": [1400, 450],
+  "entities": [
+    { "type": "sun", "pos": [800, 450], "pinned": true, "id": "primary" },
+    { "type": "sun", "pos": [1050, 450], "pinned": false, "orbits": "primary" }
+  ]
+}

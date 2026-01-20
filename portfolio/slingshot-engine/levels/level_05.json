@@ -1,0 +1,11 @@
+{
+  "id": 5,
+  "name": "Orbital Dance",
+  "tutorial": false,
+  "spawn": [150, 750],
+  "goal": [1450, 150],
+  "entities": [
+    { "type": "sun", "pos": [800, 450], "pinned": true, "id": "center_sun" },
+    { "type": "planet", "pos": [1100, 450], "pinned": false, "orbits": "center_sun" }
+  ]
+}

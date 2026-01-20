@@ -1,0 +1,12 @@
+{
+  "id": 3,
+  "name": "Gravity Well",
+  "tutorial": false,
+  "spawn": [200, 750],
+  "goal": [1400, 150],
+  "entities": [
+    { "type": "sun", "pos": [800, 450], "pinned": true },
+    { "type": "planet", "pos": [450, 300], "pinned": true },
+    { "type": "planet", "pos": [1150, 600], "pinned": true }
+  ]
+}

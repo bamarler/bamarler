@@ -10,6 +10,7 @@ interface SlingshotModule {
   getAttempts: () => number
   getCurrentLevel: () => number
   getGameState: () => number
+  getTotalLevels: () => number
   getVersion: () => string
   needsLandscape: () => boolean
   dismissRules: () => void

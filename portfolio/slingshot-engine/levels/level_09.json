@@ -1,0 +1,12 @@
+{
+  "id": 9,
+  "name": "Dark Orbit",
+  "tutorial": false,
+  "spawn": [200, 800],
+  "goal": [1400, 100],
+  "entities": [
+    { "type": "singularity", "pos": [800, 450], "pinned": true, "id": "void" },
+    { "type": "planet", "pos": [1100, 450], "pinned": false, "orbits": "void" },
+    { "type": "planet", "pos": [500, 450], "pinned": false, "orbits": "void" }
+  ]
+}

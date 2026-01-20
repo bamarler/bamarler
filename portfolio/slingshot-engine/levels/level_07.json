@@ -1,0 +1,10 @@
+{
+  "id": 7,
+  "name": "Event Horizon",
+  "tutorial": false,
+  "spawn": [200, 450],
+  "goal": [1400, 450],
+  "entities": [
+    { "type": "singularity", "pos": [800, 450], "pinned": true }
+  ]
+}
