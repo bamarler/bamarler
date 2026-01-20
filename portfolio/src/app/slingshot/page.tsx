@@ -15,6 +15,7 @@ const SlingshotCanvas = dynamic(
 
 interface SlingshotModule {
   resetGame: () => void
+  retryLevel: () => void
   setLevel: (levelId: number) => void
   getAttempts: () => number
   getCurrentLevel: () => number
@@ -23,7 +24,7 @@ interface SlingshotModule {
 }
 
 export default function SlingshotPage() {
-  const [gameState, setGameState] = useState(GameState.Rules)
+  const [gameState, setGameState] = useState<number>(GameState.Rules)
   const [attempts, setAttempts] = useState(0)
   const [levelId, setLevelId] = useState(1)
   const [showLeaderboard, setShowLeaderboard] = useState(false)
@@ -34,7 +35,7 @@ export default function SlingshotPage() {
   } | null>(null)
 
   const moduleRef = useRef<SlingshotModule | null>(null)
-  const { playerId, playerName, setPlayerName, saveAttempt, isNewPlayer } =
+  const { playerId, setPlayerName, saveAttempt, needsName } =
     useSlingshotGame()
 
   // Lock scroll
@@ -59,7 +60,7 @@ export default function SlingshotPage() {
 
   const handleWin = useCallback(
     async (levelId: number, attempts: number) => {
-      if (isNewPlayer) {
+      if (needsName) {
         // Prompt for name before saving
         setPendingWin({ levelId, attempts })
         setShowNamePrompt(true)
@@ -67,7 +68,7 @@ export default function SlingshotPage() {
         await saveAttempt(levelId, attempts)
       }
     },
-    [isNewPlayer, playerId, saveAttempt],
+    [needsName, playerId, saveAttempt],
   )
 
   const handleNameSubmit = useCallback(

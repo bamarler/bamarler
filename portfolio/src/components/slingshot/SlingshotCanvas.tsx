@@ -58,10 +58,9 @@ export default function SlingshotCanvas({
 
     const loadModule = async () => {
       try {
-        // Dynamic import for ES module
-        const { default: SlingshotModule } = await import(
-          /* webpackIgnore: true */ '/wasm/slingshot.js'
-        )
+        // Dynamic import for ES module (built by Emscripten, served from public/wasm)
+        // @ts-expect-error - WASM module loaded at runtime from public folder
+        const { default: SlingshotModule } = await import('/wasm/slingshot.js')
 
         if (!mounted) return
 
