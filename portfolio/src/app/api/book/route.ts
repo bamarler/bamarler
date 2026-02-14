@@ -39,6 +39,12 @@ export async function POST(req: NextRequest) {
 
     // 3. Verify Turnstile CAPTCHA (skip in development)
     if (process.env.NODE_ENV === 'production') {
+      if (!data.turnstileToken) {
+        return NextResponse.json(
+          { error: 'Security verification required.' },
+          { status: 400 }
+        )
+      }
       const turnstileValid = await verifyTurnstile(data.turnstileToken)
       if (!turnstileValid) {
         return NextResponse.json(
