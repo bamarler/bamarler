@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { WeeklyCalendar, type WeekData } from './WeeklyCalendar'
 import { BookingForm } from './BookingForm'
-import { addWeeks, startOfWeek, format } from 'date-fns'
+import { addWeeks, addBusinessDays, startOfWeek, format } from 'date-fns'
 
 type BookingStep = 'calendar' | 'details'
 
@@ -20,9 +20,10 @@ export function BookingWidget() {
   const [weekData, setWeekData] = useState<WeekData | null>(null)
   const [loading, setLoading] = useState(true)
   const [timezone, setTimezone] = useState('America/New_York')
-  const [currentWeekStart, setCurrentWeekStart] = useState<Date>(() =>
-    startOfWeek(new Date(), { weekStartsOn: 1 }),
-  )
+  const [currentWeekStart, setCurrentWeekStart] = useState<Date>(() => {
+    const earliestAvailable = addBusinessDays(new Date(), 2)
+    return startOfWeek(earliestAvailable, { weekStartsOn: 1 })
+  })
 
   // Detect visitor's timezone on mount
   useEffect(() => {

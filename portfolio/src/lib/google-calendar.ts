@@ -82,6 +82,7 @@ export interface CreateEventParams {
   attendeeEmail: string
   meetingPreference: 'google_meet' | 'custom_link' | 'phone'
   customMeetingLink?: string
+  phoneNumber?: string
   notes?: string
 }
 
@@ -96,13 +97,16 @@ export async function createCalendarEvent({
   attendeeEmail,
   meetingPreference,
   customMeetingLink,
+  phoneNumber,
   notes,
 }: CreateEventParams) {
   const calendar = getCalendarClient()
   const ownerTz = process.env.OWNER_TIMEZONE || 'America/New_York'
 
+  const targetCalendar = process.env.GOOGLE_CALENDAR_TARGET_ID || 'primary'
+
   const event = await calendar.events.insert({
-    calendarId: 'primary',
+    calendarId: targetCalendar,
     conferenceDataVersion: meetingPreference === 'google_meet' ? 1 : 0,
     sendUpdates: 'all', // Google sends invite to attendees automatically
     requestBody: {
@@ -122,7 +126,8 @@ export async function createCalendarEvent({
       description: buildEventDescription(
         meetingPreference,
         customMeetingLink,
-        notes
+        notes,
+        phoneNumber
       ),
     },
   })
@@ -133,12 +138,15 @@ export async function createCalendarEvent({
 function buildEventDescription(
   meetingPreference: string,
   customMeetingLink?: string,
-  notes?: string
+  notes?: string,
+  phoneNumber?: string
 ): string | undefined {
   const parts: string[] = []
 
   if (meetingPreference === 'custom_link' && customMeetingLink) {
     parts.push(`Meeting link: ${customMeetingLink}`)
+  } else if (meetingPreference === 'phone' && phoneNumber) {
+    parts.push(`Phone call: ${phoneNumber}`)
   } else if (meetingPreference === 'phone') {
     parts.push('This meeting will be conducted via phone.')
   }

@@ -9,6 +9,10 @@ import { NextResponse } from 'next/server'
  * or protect it from public access.
  */
 export async function GET() {
+  if (process.env.NODE_ENV === 'production') {
+    return NextResponse.json({ error: 'Not available' }, { status: 404 })
+  }
+
   const clientId = process.env.GOOGLE_CLIENT_ID
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET
   const appUrl = process.env.NEXT_PUBLIC_APP_URL

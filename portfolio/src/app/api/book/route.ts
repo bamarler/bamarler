@@ -49,12 +49,14 @@ export async function POST(req: NextRequest) {
     }
 
     // 4. Check email-based rate limit (3 bookings per day per email)
-    const { success: withinRateLimit } = await emailRateLimit.limit(data.email)
-    if (!withinRateLimit) {
-      return NextResponse.json(
-        { error: 'Too many booking requests. Please try again tomorrow.' },
-        { status: 429 }
-      )
+    if (process.env.NODE_ENV === 'production') {
+      const { success: withinRateLimit } = await emailRateLimit.limit(data.email)
+      if (!withinRateLimit) {
+        return NextResponse.json(
+          { error: 'Too many booking requests. Please try again tomorrow.' },
+          { status: 429 }
+        )
+      }
     }
 
     // 5. Parse booking times
@@ -80,6 +82,7 @@ export async function POST(req: NextRequest) {
         notes: data.notes || null,
         meeting_preference: data.meetingPreference,
         custom_meeting_link: data.customMeetingLink || null,
+        phone_number: data.phoneNumber || null,
         verification_token: verificationToken,
         verification_expires_at: verificationExpiresAt,
         approval_token: approvalToken,

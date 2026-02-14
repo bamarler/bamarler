@@ -9,23 +9,23 @@ export const metadata: Metadata = {
 const errorMessages: Record<string, { title: string; message: string }> = {
   missing_token: {
     title: 'Missing Token',
-    message: 'The verification link appears to be incomplete. Please try clicking the link from your email again.',
+    message: 'The link appears to be incomplete. Please try clicking the link from the email again.',
   },
   invalid_token: {
     title: 'Invalid Link',
-    message: 'This link is invalid or has already been used. If you believe this is an error, please try booking again.',
+    message: 'This link is invalid or has already been used. The booking may have already been processed.',
   },
   expired: {
     title: 'Link Expired',
-    message: 'This verification link has expired. Please submit a new booking request.',
+    message: 'This verification link has expired. The guest will need to submit a new booking request.',
   },
   update_failed: {
-    title: 'Something Went Wrong',
-    message: 'We couldn\'t update your booking. Please try again or contact me directly.',
+    title: 'Update Failed',
+    message: 'Failed to update the booking status. Please try clicking the link again or update the booking directly in Supabase.',
   },
   unknown: {
     title: 'Unexpected Error',
-    message: 'Something went wrong on our end. Please try again or contact me directly if the problem persists.',
+    message: 'Something went wrong processing this request. Please try again.',
   },
 }
 

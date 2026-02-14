@@ -36,6 +36,7 @@ export function BookingForm({ date, slot, timezone, onBack }: BookingFormProps) 
     notes: '',
     meetingPreference: 'google_meet' as 'google_meet' | 'custom_link' | 'phone',
     customMeetingLink: '',
+    phoneNumber: '',
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -205,6 +206,27 @@ export function BookingForm({ date, slot, timezone, onBack }: BookingFormProps) 
                 }))
               }
               required={formData.meetingPreference === 'custom_link'}
+            />
+          </div>
+        )}
+
+        {formData.meetingPreference === 'phone' && (
+          <div className="space-y-2">
+            <Label htmlFor="phoneNumber">Phone Number *</Label>
+            <Input
+              id="phoneNumber"
+              type="tel"
+              placeholder="+1 (555) 123-4567"
+              value={formData.phoneNumber}
+              onChange={(e) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  phoneNumber: e.target.value,
+                }))
+              }
+              required
+              minLength={7}
+              maxLength={20}
             />
           </div>
         )}

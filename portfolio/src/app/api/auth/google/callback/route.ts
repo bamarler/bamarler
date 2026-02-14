@@ -10,6 +10,10 @@ import { NextRequest, NextResponse } from 'next/server'
  * to "Production" mode, or refresh tokens will expire after 7 days.
  */
 export async function GET(req: NextRequest) {
+  if (process.env.NODE_ENV === 'production') {
+    return NextResponse.json({ error: 'Not available' }, { status: 404 })
+  }
+
   const code = req.nextUrl.searchParams.get('code')
   const error = req.nextUrl.searchParams.get('error')
 

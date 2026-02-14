@@ -10,8 +10,8 @@ import { ipRateLimit } from '@/lib/rate-limit'
 export async function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname
 
-  // Apply rate limiting to booking endpoint
-  if (pathname === '/api/book' && req.method === 'POST') {
+  // Apply rate limiting to booking endpoint (skip in dev)
+  if (pathname === '/api/book' && req.method === 'POST' && process.env.NODE_ENV === 'production') {
     const ip = getClientIp(req)
 
     const { success, remaining } = await ipRateLimit.limit(ip)

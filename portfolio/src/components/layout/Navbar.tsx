@@ -10,6 +10,7 @@ const navLinks = [
   { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
   { name: 'Skills', href: '#skills' },
+  { name: 'Book', href: '/book' },
   { name: 'Play', href: '#game' },
   { name: 'Contact', href: '#contact' },
 ]
@@ -58,15 +59,25 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <div className="hidden items-center gap-8 md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-text-muted hover:text-accent-primary text-sm font-medium transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith('/') ? (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-text-muted hover:text-accent-primary text-sm font-medium transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-text-muted hover:text-accent-primary text-sm font-medium transition-colors"
+                >
+                  {link.name}
+                </a>
+              ),
+            )}
             <Link
               href="/resume"
               className="border-primary-light/50 hover:bg-primary-light/10 rounded-full border px-5 py-2 text-sm font-bold transition-all"
@@ -113,16 +124,27 @@ export default function Navbar() {
 
         {/* Mobile links */}
         <div className="flex flex-1 flex-col items-center justify-center gap-6">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={closeMobile}
-              className="text-text-primary hover:text-accent-primary font-heading text-3xl font-bold transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.href.startsWith('/') ? (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={closeMobile}
+                className="text-text-primary hover:text-accent-primary font-heading text-3xl font-bold transition-colors"
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={closeMobile}
+                className="text-text-primary hover:text-accent-primary font-heading text-3xl font-bold transition-colors"
+              >
+                {link.name}
+              </a>
+            ),
+          )}
           <Link
             href="/resume"
             onClick={closeMobile}

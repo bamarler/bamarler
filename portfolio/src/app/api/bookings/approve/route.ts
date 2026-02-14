@@ -45,6 +45,7 @@ export async function GET(req: NextRequest) {
         attendeeEmail: booking.guest_email,
         meetingPreference: booking.meeting_preference,
         customMeetingLink: booking.custom_meeting_link,
+        phoneNumber: booking.phone_number,
         notes: booking.notes,
       })
 
@@ -64,7 +65,6 @@ export async function GET(req: NextRequest) {
         status: 'approved',
         google_calendar_event_id: eventId,
         approved_at: new Date().toISOString(),
-        approval_token: null, // Clear token after use
       })
       .eq('id', booking.id)
 
@@ -75,10 +75,7 @@ export async function GET(req: NextRequest) {
       )
     }
 
-    // Redirect to admin success page
-    return NextResponse.redirect(
-      new URL(`/admin/bookings?approved=${booking.id}`, appUrl)
-    )
+    return NextResponse.redirect(new URL('/book/approved', appUrl))
   } catch (error) {
     console.error('Approval error:', error)
     return NextResponse.redirect(new URL('/book/error?reason=unknown', appUrl))

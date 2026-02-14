@@ -3,7 +3,7 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useRef } from 'react'
-import { MoveRight, Play, Hand, Mouse } from 'lucide-react'
+import { MoveRight, Play, Hand, Mouse, Calendar } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { supabase } from '@/lib/supabase'
@@ -172,6 +172,14 @@ export default function Hero() {
                 size={20}
                 className="transition-transform group-hover:translate-x-1"
               />
+            </Link>
+
+            <Link
+              href="/book"
+              className="bg-bg-dark/40 flex items-center gap-3 rounded-full border border-white/10 px-10 py-4 text-sm font-bold backdrop-blur-sm transition-all hover:bg-white/5"
+            >
+              <Calendar size={18} className="text-accent-primary" />
+              <span>Book a Meeting</span>
             </Link>
 
             <a

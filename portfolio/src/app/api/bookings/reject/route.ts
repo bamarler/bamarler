@@ -40,7 +40,6 @@ export async function GET(req: NextRequest) {
       .update({
         status: 'rejected',
         rejected_at: new Date().toISOString(),
-        approval_token: null, // Clear token after use
       })
       .eq('id', booking.id)
 
@@ -63,10 +62,7 @@ export async function GET(req: NextRequest) {
       // Don't fail - the booking is rejected, email is a courtesy
     }
 
-    // Redirect to admin page
-    return NextResponse.redirect(
-      new URL(`/admin/bookings?rejected=${booking.id}`, appUrl)
-    )
+    return NextResponse.redirect(new URL('/book/rejected', appUrl))
   } catch (error) {
     console.error('Rejection error:', error)
     return NextResponse.redirect(new URL('/book/error?reason=unknown', appUrl))

@@ -12,6 +12,10 @@ import { fromZonedTime } from 'date-fns-tz'
  * !! Remove or protect this endpoint before going to production !!
  */
 export async function GET() {
+  if (process.env.NODE_ENV === 'production') {
+    return NextResponse.json({ error: 'Not available' }, { status: 404 })
+  }
+
   const ownerTz = process.env.OWNER_TIMEZONE || 'America/New_York'
 
   const envCheck = {

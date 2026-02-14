@@ -26,12 +26,22 @@ export const bookingSchema = z.object({
   notes: z.string().max(500, 'Notes must be less than 500 characters').optional(),
   // Honeypot field - must be empty (bots auto-fill this)
   website: z.string().max(0, 'Invalid submission').optional(),
-  // Turnstile CAPTCHA token
-  turnstileToken: z.string().min(1, 'Please complete the security check'),
+  // Turnstile CAPTCHA token (nullable in dev where widget is skipped)
+  turnstileToken: z.string().min(1, 'Please complete the security check').or(z.null()),
   meetingPreference: z
     .enum(['google_meet', 'custom_link', 'phone'])
     .default('google_meet'),
-  customMeetingLink: z.string().url('Please enter a valid URL').optional(),
+  customMeetingLink: z
+    .string()
+    .url('Please enter a valid URL')
+    .optional()
+    .or(z.literal('')),
+  phoneNumber: z
+    .string()
+    .min(7, 'Please enter a valid phone number')
+    .max(20)
+    .optional()
+    .or(z.literal('')),
 })
 
 export type BookingInput = z.infer<typeof bookingSchema>

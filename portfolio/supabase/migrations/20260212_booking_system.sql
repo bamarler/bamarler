@@ -68,6 +68,7 @@ CREATE TABLE IF NOT EXISTS bookings (
   meeting_preference TEXT DEFAULT 'google_meet'
     CHECK (meeting_preference IN ('google_meet', 'custom_link', 'phone')),
   custom_meeting_link TEXT,
+  phone_number TEXT,
 
   -- Google Calendar integration
   google_calendar_event_id TEXT,
@@ -119,6 +120,19 @@ CREATE POLICY "Public read own booking by token"
     verification_token IS NOT NULL
     OR approval_token IS NOT NULL
   );
+
+-- Public can verify a booking (pending_verification → pending_approval)
+-- Only works if the caller provides the correct verification_token
+CREATE POLICY "Public can verify booking by token"
+  ON bookings FOR UPDATE TO anon
+  USING (verification_token IS NOT NULL AND status = 'pending_verification')
+  WITH CHECK (status = 'pending_approval');
+
+-- Public can approve/reject a booking via approval_token
+CREATE POLICY "Public can approve or reject booking by token"
+  ON bookings FOR UPDATE TO anon
+  USING (approval_token IS NOT NULL AND status = 'pending_approval')
+  WITH CHECK (status IN ('approved', 'rejected'));
 
 -- Authenticated users (admin) have full access
 CREATE POLICY "Admin full access to availability"
