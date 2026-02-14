@@ -91,19 +91,21 @@ export function BookingWidget() {
     : format(currentWeekStart, 'MMM d, yyyy')
 
   return (
-    <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col md:flex-none">
-      <div className="flex flex-1 flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-4 backdrop-blur-sm md:flex-none md:p-6">
-        {/* Header */}
-        <div className="mb-4 flex-shrink-0 text-center md:mb-6">
-          <h1 className="font-heading text-2xl font-bold tracking-tight md:text-4xl">
-            Book a{' '}
-            <span className="text-gradient italic">Meeting</span>
-          </h1>
-          <p className="text-text-muted mx-auto mt-1 max-w-md text-xs md:mt-2 md:text-sm">
-            Select a time that works for you and I&apos;ll get back to you
-            soon.
-          </p>
-        </div>
+    <div className="mx-auto flex min-h-0 w-full max-w-4xl flex-1 flex-col md:flex-none">
+      <div className="flex min-h-0 flex-1 flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-4 backdrop-blur-sm md:flex-none md:p-6">
+        {/* Header — only shown on calendar step */}
+        {step === 'calendar' && (
+          <div className="mb-4 flex-shrink-0 text-center md:mb-6">
+            <h1 className="font-heading text-2xl font-bold tracking-tight md:text-4xl">
+              Book a{' '}
+              <span className="text-gradient italic">Meeting</span>
+            </h1>
+            <p className="text-text-muted mx-auto mt-1 max-w-md text-xs md:mt-2 md:text-sm">
+              Select a time that works for you and I&apos;ll get back to you
+              soon.
+            </p>
+          </div>
+        )}
 
         {step === 'calendar' && (
           <WeeklyCalendar
@@ -116,7 +118,7 @@ export function BookingWidget() {
         )}
 
         {step === 'details' && selectedSlot && (
-          <div className="flex-1 overflow-y-auto md:flex-none">
+          <div className="min-h-0 flex-1 overflow-y-auto md:flex-none">
             <BookingForm
               date={new Date(selectedSlot.date + 'T12:00:00')}
               slot={{

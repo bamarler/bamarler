@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function BookPage() {
   return (
     <main className="bg-bg-dark flex h-dvh flex-col overflow-hidden px-4 py-4 md:min-h-screen md:items-center md:justify-center md:overflow-auto md:px-6 md:py-12">
-      <div className="flex w-full max-w-4xl flex-1 flex-col md:flex-none">
+      <div className="flex min-h-0 w-full max-w-4xl flex-1 flex-col md:flex-none">
         {/* Back link */}
         <Link
           href="/"

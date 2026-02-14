@@ -79,7 +79,7 @@ export function BookingForm({ date, slot, timezone, onBack }: BookingFormProps) 
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
       <div className="flex items-center gap-4">
         <Button type="button" variant="ghost" size="icon" onClick={onBack}>
           <ArrowLeft className="h-4 w-4" />
@@ -157,7 +157,7 @@ export function BookingForm({ date, slot, timezone, onBack }: BookingFormProps) 
               setFormData((prev) => ({ ...prev, notes: e.target.value }))
             }
             maxLength={500}
-            rows={3}
+            rows={2}
           />
         </div>
 
