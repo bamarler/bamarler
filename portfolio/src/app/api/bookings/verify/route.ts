@@ -10,7 +10,7 @@ import { sendOwnerNotification } from '@/lib/email'
  */
 export async function GET(req: NextRequest) {
   const token = req.nextUrl.searchParams.get('token')
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL || ''
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || req.nextUrl.origin
 
   if (!token) {
     return NextResponse.redirect(

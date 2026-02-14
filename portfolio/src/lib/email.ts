@@ -61,8 +61,13 @@ export async function sendVerificationEmail(
               Hi ${name},
             </p>
 
+            <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 16px 0;">
+              Thank you for wanting to meet with me! Please click the button below to verify your email address and submit your request for approval.
+            </p>
+
             <p style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0 0 24px 0;">
-              Thank you for your booking request. Please click the button below to verify your email address and submit your request for approval.
+              Best,<br>
+              Ben Marler
             </p>
 
             <a href="${verificationUrl}" style="display: inline-block; background: #8e4585; color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px;">
@@ -71,12 +76,6 @@ export async function sendVerificationEmail(
 
             <p style="color: #6b7280; font-size: 14px; line-height: 1.6; margin: 24px 0 0 0;">
               This link will expire in 24 hours. If you didn't request this booking, you can safely ignore this email.
-            </p>
-
-            <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 24px 0;">
-
-            <p style="color: #9ca3af; font-size: 12px; margin: 0;">
-              Benjamin Marler &bull; Software Engineer
             </p>
           </div>
         </body>
