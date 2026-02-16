@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Benjamin Marler | Software Engineer | CS & Physics @ Northeastern',
+  title: 'Benjamin Marler',
   description:
     'Building systems where physics meets code. Software Engineer and CS/Physics student seeking May-December 2026 co-op opportunities.',
   metadataBase: new URL('https://bamarler.com'),
