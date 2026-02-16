@@ -44,8 +44,7 @@ export default function About() {
                 <strong className="text-accent-primary">
                   Reinforcement Learning
                 </strong>{' '}
-                and
-                <strong className="text-accent-primary">Physics</strong>{' '}
+                and <strong className="text-accent-primary">Physics</strong>{' '}
                 simulations for policy transfer learning. My previous work
                 focuses on traditional software engineering and data pipelines.
               </p>
