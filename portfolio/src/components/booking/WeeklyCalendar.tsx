@@ -53,7 +53,7 @@ interface WeeklyCalendarProps {
 
 const SLOT_HEIGHT = 28 // px per 30-min slot
 const TIME_LABEL_WIDTH = 56 // px
-const MIN_BUSINESS_DAYS_LEAD = 2
+const MIN_BUSINESS_DAYS_LEAD = 1
 const MOBILE_SLOT_INCREMENT = 15 // minutes between start times on mobile
 const MEETING_DURATION = 30 // minutes
 
