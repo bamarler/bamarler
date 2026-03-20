@@ -19,12 +19,11 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    // Find booking by verification token
+    // Find booking by verification token (no status filter for idempotency)
     const { data: booking, error: findError } = await supabase
       .from('bookings')
       .select('*')
       .eq('verification_token', token)
-      .eq('status', 'pending_verification')
       .single()
 
     if (findError || !booking) {
@@ -32,6 +31,11 @@ export async function GET(req: NextRequest) {
       return NextResponse.redirect(
         new URL('/book/error?reason=invalid_token', appUrl)
       )
+    }
+
+    // Idempotent: already verified (e.g. double-click or re-click) → send to success
+    if (booking.status !== 'pending_verification') {
+      return NextResponse.redirect(new URL('/book/verified', appUrl))
     }
 
     // Check if verification link has expired
@@ -44,13 +48,12 @@ export async function GET(req: NextRequest) {
       )
     }
 
-    // Update booking status to pending_approval
+    // Update booking status to pending_approval (keep token for re-lookup)
     const { error: updateError } = await supabase
       .from('bookings')
       .update({
         status: 'pending_approval',
         verified_at: new Date().toISOString(),
-        verification_token: null, // Clear token after use
         verification_expires_at: null,
       })
       .eq('id', booking.id)
