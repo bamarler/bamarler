@@ -34,6 +34,7 @@ export default function SlingshotPage() {
   const [maxUnlockedLevel, setMaxUnlockedLevel] = useState(1)
   const [showLeaderboard, setShowLeaderboard] = useState(false)
   const [showNamePrompt, setShowNamePrompt] = useState(false)
+  const [nameError, setNameError] = useState<string | null>(null)
   const [pendingWin, setPendingWin] = useState<{
     levelId: number
     attempts: number
@@ -93,7 +94,14 @@ export default function SlingshotPage() {
 
   const handleNameSubmit = useCallback(
     async (name: string) => {
-      await setPlayerName(name)
+      setNameError(null)
+      const accepted = await setPlayerName(name)
+
+      if (!accepted && name.trim()) {
+        setNameError("That name isn't allowed. Try another.")
+        return
+      }
+
       setShowNamePrompt(false)
 
       if (pendingWin) {
@@ -194,14 +202,18 @@ export default function SlingshotPage() {
                 placeholder="Your name"
                 maxLength={20}
                 autoFocus
-                className="focus:border-accent-primary mb-4 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-zinc-500 focus:outline-none"
+                onChange={() => setNameError(null)}
+                className="focus:border-accent-primary mb-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-zinc-500 focus:outline-none"
               />
+              <p className="mb-3 min-h-[1rem] text-xs text-red-400">
+                {nameError ?? ''}</p>
               <div className="flex gap-3">
                 <button
                   type="button"
                   onClick={() => {
                     setShowNamePrompt(false)
                     setPendingWin(null)
+                    setNameError(null)
                   }}
                   className="flex-1 rounded-xl border border-white/10 py-3 font-medium transition-all hover:bg-white/5"
                 >

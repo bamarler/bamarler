@@ -2,6 +2,16 @@
 
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { supabase } from '@/lib/supabase'
+import {
+  RegExpMatcher,
+  englishDataset,
+  englishRecommendedTransformers,
+} from 'obscenity'
+
+const profanityMatcher = new RegExpMatcher({
+  ...englishDataset.build(),
+  ...englishRecommendedTransformers,
+})
 
 const PLAYER_ID_KEY = 'slingshot_player_id'
 const PLAYER_NAME_KEY = 'slingshot_player_name'
@@ -62,6 +72,8 @@ export function useSlingshotGame(): UseSlingshotGameReturn {
     async (name: string): Promise<boolean> => {
       const trimmedName = name.trim().slice(0, 20)
       if (!trimmedName || !playerId) return false
+
+      if (profanityMatcher.hasMatch(trimmedName)) return false
 
       const { error } = await supabase.rpc('set_player_name', {
         p_player_id: playerId,
