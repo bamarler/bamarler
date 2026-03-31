@@ -89,9 +89,28 @@ interface GroupedSkills {
   skills: Skill[]
 }
 
+const ORBIT_SIZE = 520 // px — the "design size" of the orbit square
+
 export default function Skills() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const wrapperRef = useRef<HTMLDivElement>(null)
   const [groupedSkills, setGroupedSkills] = useState<GroupedSkills[]>([])
+  const [orbitScale, setOrbitScale] = useState(1)
+
+  // Compute scale factor so the orbit fits within its container
+  useEffect(() => {
+    const updateScale = () => {
+      if (!wrapperRef.current) return
+      const available = wrapperRef.current.clientWidth
+      // Allow orbit to overflow horizontally — scale to ~85% of container
+      // so chips can float off-screen and back. Clamp minimum at 0.75.
+      const raw = available / ORBIT_SIZE
+      setOrbitScale(raw >= 1 ? 1 : Math.max(0.75, raw * 1.15))
+    }
+    updateScale()
+    window.addEventListener('resize', updateScale)
+    return () => window.removeEventListener('resize', updateScale)
+  }, [])
 
   useEffect(() => {
     async function fetchSkills() {
@@ -133,9 +152,9 @@ export default function Skills() {
     })
   }, [groupedSkills])
 
-  const ORBIT_SIZE = 520 // px — the "design size" of the orbit square
   const guideRadii = [80, 125, 170, 215]
   const orbitRadii = [80, 125, 170, 215]
+  const scaledSize = ORBIT_SIZE * orbitScale
 
   return (
     <section
@@ -144,20 +163,31 @@ export default function Skills() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden py-16 md:py-24"
     >
       <div className="skill-orbit-container relative z-10 flex w-full flex-col items-center justify-center px-4">
-        <div className="mb-4 text-center md:mb-8">
+        <div className="mb-4 mt-8 text-center md:mb-8 md:mt-0">
           <h2 className="font-heading text-3xl font-bold tracking-tight italic md:text-4xl">
             Skill <span className="text-accent-primary">Orbit</span>
           </h2>
         </div>
 
-        {/*
-          The orbit is designed at ORBIT_SIZE px then scaled to fit.
-          The outer div reserves the scaled height; the inner div is the fixed-size orbit.
-        */}
-        <div className="orbit-scale-wrapper relative flex items-center justify-center">
+        {/* Wrapper reserves the scaled height; inner is fixed-size and CSS-scaled */}
+        <div
+          ref={wrapperRef}
+          className="relative w-full"
+          style={{
+            maxWidth: ORBIT_SIZE,
+            height: scaledSize,
+          }}
+        >
           <div
-            className="orbit-inner origin-center"
-            style={{ width: ORBIT_SIZE, height: ORBIT_SIZE }}
+            style={{
+              width: ORBIT_SIZE,
+              height: ORBIT_SIZE,
+              transform: `scale(${orbitScale})`,
+              transformOrigin: 'top center',
+              position: 'absolute',
+              left: '50%',
+              marginLeft: -(ORBIT_SIZE / 2),
+            }}
           >
             {/* Core */}
             <div
@@ -279,21 +309,6 @@ export default function Skills() {
       </div>
 
       <style jsx>{`
-        .orbit-scale-wrapper {
-          width: 520px;
-          height: 520px;
-        }
-        /* Scale the fixed-size orbit to fit within viewport on small screens */
-        @media (max-width: 560px) {
-          .orbit-scale-wrapper {
-            width: calc(100vw - 2rem);
-            height: calc(100vw - 2rem);
-          }
-          .orbit-inner {
-            transform: scale(calc((100vw - 2rem) / 520));
-            transform-origin: center center;
-          }
-        }
         @keyframes spin-ring-0 {
           from {
             transform: translate(-50%, -50%) rotate(15deg);
