@@ -1,9 +1,14 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useRef, useState, useEffect } from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { supabase } from '@/lib/supabase'
 import Image from 'next/image'
 import { Github, ExternalLink } from 'lucide-react'
+
+gsap.registerPlugin(ScrollTrigger)
 
 interface Project {
   id: string
@@ -16,6 +21,7 @@ interface Project {
 }
 
 export default function Projects() {
+  const containerRef = useRef<HTMLDivElement>(null)
   const [projects, setProjects] = useState<Project[]>([])
 
   useEffect(() => {
@@ -30,8 +36,27 @@ export default function Projects() {
     fetchProjects()
   }, [])
 
+  // Staggered card reveal on scroll
+  useGSAP(() => {
+    if (!projects.length) return
+
+    gsap.utils.toArray<HTMLElement>('.project-card').forEach((card, i) => {
+      gsap.from(card, {
+        opacity: 0,
+        y: 40,
+        duration: 0.6,
+        delay: i * 0.1,
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 85%',
+          toggleActions: 'play none none reverse',
+        },
+      })
+    })
+  }, [projects])
+
   return (
-    <section id="projects" className="bg-bg-dark py-24">
+    <section id="projects" ref={containerRef} className="py-24">
       <div className="container mx-auto px-6">
         <div className="mb-12 text-center lg:text-left">
           <h2 className="font-heading text-4xl font-bold tracking-tight italic">
@@ -46,12 +71,12 @@ export default function Projects() {
               .getPublicUrl(project.image_name)
 
             return (
-              <div key={project.id} className="group relative">
+              <div key={project.id} className="project-card group relative">
                 {/* Amber aura on hover - behind the card */}
                 <div className="bg-accent-primary pointer-events-none absolute -inset-1 rounded-2xl opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-30" />
 
                 <div className="bg-bg-dark relative z-10 flex flex-col rounded-2xl border border-white/10 p-4 shadow-2xl transition-all duration-500">
-                  <div className="relative bg-bg-dark mb-6 aspect-video overflow-hidden rounded-lg border border-white/10">
+                  <div className="bg-bg-dark relative mb-6 aspect-video overflow-hidden rounded-lg border border-white/10">
                     {imgData?.publicUrl && (
                       <Image
                         src={imgData.publicUrl}

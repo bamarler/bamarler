@@ -105,7 +105,9 @@ export default function RootLayout({
         )}
       >
         <SmoothScroll>
-          <div className="relative flex min-h-screen flex-col">{children}</div>
+          <div className="relative flex min-h-screen flex-col overflow-x-hidden">
+            {children}
+          </div>
         </SmoothScroll>
       </body>
     </html>

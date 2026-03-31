@@ -55,7 +55,7 @@ export default function Experience() {
     )
 
     // 2. Card Reveal Animation (Fading in as you scroll)
-    gsap.utils.toArray('.exp-card').forEach((card: any) => {
+    gsap.utils.toArray<HTMLElement>('.exp-card').forEach((card) => {
       gsap.from(card, {
         opacity: 0,
         y: 40,
@@ -66,6 +66,24 @@ export default function Experience() {
           toggleActions: 'play none none reverse',
         },
       })
+    })
+
+    // 3. Timeline dot pulse when card enters viewport
+    gsap.utils.toArray<HTMLElement>('.exp-dot').forEach((dot) => {
+      gsap.fromTo(
+        dot,
+        { scale: 1 },
+        {
+          scale: 1.5,
+          duration: 0.4,
+          ease: 'back.out(2)',
+          scrollTrigger: {
+            trigger: dot,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+        },
+      )
     })
   }, [data])
 
@@ -103,7 +121,7 @@ export default function Experience() {
                 className="exp-card group relative flex flex-col items-start gap-12 pl-12 md:flex-row"
               >
                 {/* Visual Anchor/Dot */}
-                <div className="bg-bg-dark border-primary-light group-hover:bg-primary-light absolute top-2 left-[-6px] z-10 h-3.5 w-3.5 rounded-full border-2 transition-colors" />
+                <div className="exp-dot bg-bg-dark border-primary-light group-hover:bg-primary-light absolute top-2 left-[-6px] z-10 h-3.5 w-3.5 rounded-full border-2 transition-colors" />
 
                 <div className="max-w-2xl flex-grow">
                   <span className="text-accent-primary font-mono text-xs font-bold tracking-widest">
