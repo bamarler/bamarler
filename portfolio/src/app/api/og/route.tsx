@@ -140,25 +140,6 @@ export async function GET() {
             </span>
           </div>
 
-          {/* Co-op badge */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              border: '1px solid rgba(245,158,11,0.3)',
-              background: 'rgba(245,158,11,0.1)',
-              color: '#f59e0b',
-              borderRadius: 9999,
-              padding: '6px 16px',
-              fontSize: 13,
-              fontWeight: 700,
-              letterSpacing: '0.1em',
-              alignSelf: 'flex-start',
-            }}
-          >
-            SEEKING MAY-DEC 2026 CO-OP
-          </div>
-
           {/* Tagline */}
           <div
             style={{
