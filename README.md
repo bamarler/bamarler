@@ -1,4 +1,4 @@
-### Hi there 👋 I am a third year Computer Science and Physics major at Northeastern University. I am always trying to learn new things and am passionate about Machine and Reinforcement Learning!
+### Hi there 👋 I am a fourth year Computer Science and Physics major at Northeastern University. I am always trying to learn new things and am passionate about Physics, ML, and RL!
 
 You can learn more about me at my portfolio site here: <https://bamarler.com>
 
