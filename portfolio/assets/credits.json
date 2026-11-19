@@ -1,0 +1,467 @@
+[
+  {
+    "id": "wooden_table_02",
+    "kind": "model",
+    "title": "Wooden Table 02",
+    "authors": [
+      "Serhii Khromov"
+    ],
+    "source": "polyhaven",
+    "source_url": "https://polyhaven.com/a/wooden_table_02",
+    "license": "CC0-1.0",
+    "origin": "library",
+    "ai_check": "Poly Haven states all assets are made by people, not generative AI",
+    "modifications": [
+      "stretched to 2.2 x 0.75 m"
+    ],
+    "sha256": "5c7551f78030d5c78a525ebd488e1c1db249a4f627591add1f741aa0c43742ac",
+    "downloaded": "2026-10-20"
+  },
+  {
+    "id": "solid_oak_floating_shelf",
+    "kind": "model",
+    "title": "Solid Oak Floating Shelf",
+    "authors": [
+      "BespOak Interiors"
+    ],
+    "source": "sketchfab",
+    "source_url": "https://sketchfab.com/3d-models/solid-oak-floating-shelf-bd2639cfab02446a9fd2eadb208f7817",
+    "license": "CC-BY-4.0",
+    "origin": "library",
+    "ai_check": "Published 2017 by a UK furniture maker as a model of their own 1000x200mm product",
+    "modifications": [
+      "used twice as two wall shelves"
+    ],
+    "sha256": "67c68e28b1e21ed025627d3a338fe7f22bb5bdba1d887c3827b6fff8a26d501b",
+    "downloaded": "2026-10-21"
+  },
+  {
+    "id": "old_ceramic_mug",
+    "kind": "model",
+    "title": "Old Ceramic Mug",
+    "authors": [
+      "Coozy (GameDevNick)"
+    ],
+    "source": "sketchfab",
+    "source_url": "https://sketchfab.com/3d-models/old-ceramic-mug-e553f0cf76454aab8c4f4b22be781c9c",
+    "license": "CC-BY-4.0",
+    "origin": "library",
+    "ai_check": "Made in Blender + Substance (2021, before generative mesh tools); reviewed in the Sketchfab viewer",
+    "modifications": [],
+    "sha256": "f534ac593cc7b9d0d28342b7e1a4fad36a40e22bb7ddee307a25cdab5ff678f4",
+    "downloaded": "2026-10-20"
+  },
+  {
+    "id": "wooden_candlestick",
+    "kind": "model",
+    "title": "Wooden Candlestick",
+    "authors": [
+      "Josh Dean"
+    ],
+    "source": "polyhaven",
+    "source_url": "https://polyhaven.com/a/wooden_candlestick",
+    "license": "CC0-1.0",
+    "origin": "library",
+    "ai_check": "Poly Haven states all assets are made by people, not generative AI",
+    "modifications": [
+      "mesh simplified to about 6% of its triangles for the web",
+      "flame and its light are drawn in code (a shader and a point light), not part of the model"
+    ],
+    "sha256": "388cb73176d78543eeeaf17020d3a954171133687b75dda9ab3f7ad96b0c26f9",
+    "downloaded": "2026-11-05",
+    "max_texture": 512,
+    "simplify": 0.06
+  },
+  {
+    "id": "white_plaster_02",
+    "kind": "texture",
+    "title": "White Plaster 02",
+    "authors": [
+      "Rob Tuytel"
+    ],
+    "source": "polyhaven",
+    "source_url": "https://polyhaven.com/a/white_plaster_02",
+    "license": "CC0-1.0",
+    "origin": "library",
+    "ai_check": "Poly Haven photoscan",
+    "modifications": [],
+    "sha256": "0ca5245ba70777d3e41ff4566c9f8d363855461891802c55cb7dc0f6f85f084e",
+    "downloaded": "2026-10-20"
+  },
+  {
+    "id": "plank_flooring_02",
+    "kind": "texture",
+    "title": "Plank Flooring 02",
+    "authors": [
+      "Dario Barresi",
+      "Dimitrios Savva"
+    ],
+    "source": "polyhaven",
+    "source_url": "https://polyhaven.com/a/plank_flooring_02",
+    "license": "CC0-1.0",
+    "origin": "library",
+    "ai_check": "Poly Haven photoscan",
+    "modifications": [],
+    "sha256": "b5ff302c3ecbf98775f188b0b2eca81c9d2dfe79e5b272d50889e42d8fd27b4e",
+    "downloaded": "2026-10-20"
+  },
+  {
+    "id": "permanent_marker",
+    "kind": "font",
+    "title": "Permanent Marker",
+    "authors": [
+      "Font Diner"
+    ],
+    "source": "url",
+    "source_url": "https://fonts.google.com/specimen/Permanent+Marker",
+    "file": "https://raw.githubusercontent.com/google/fonts/main/apache/permanentmarker/PermanentMarker-Regular.ttf",
+    "license": "Apache-2.0",
+    "origin": "library",
+    "ai_check": "Hand-drawn typeface published 2011",
+    "modifications": [],
+    "sha256": "28f82c8a7943cb8e9d599f8554da1d4fc75dbcf69b9885ad6c0611d20c6946c5",
+    "downloaded": "2026-10-21"
+  },
+  {
+    "kind": "font",
+    "source": "url",
+    "origin": "library",
+    "modifications": [],
+    "id": "courier_prime",
+    "title": "Courier Prime",
+    "authors": [
+      "Alan Dague-Greene (Quote-Unquote Apps)"
+    ],
+    "source_url": "https://fonts.google.com/specimen/Courier+Prime",
+    "file": "https://raw.githubusercontent.com/google/fonts/main/ofl/courierprime/CourierPrime-Regular.ttf",
+    "license": "OFL-1.1",
+    "ai_check": "Typeface drawn for screenwriters, published 2013",
+    "sha256": "72f793376f8e2841656bf21d77a5de010f2929bd6956a22ee848ad0c7eb978af",
+    "downloaded": "2026-10-22"
+  },
+  {
+    "kind": "font",
+    "source": "url",
+    "origin": "library",
+    "modifications": [],
+    "id": "courier_prime_bold",
+    "title": "Courier Prime Bold",
+    "authors": [
+      "Alan Dague-Greene (Quote-Unquote Apps)"
+    ],
+    "source_url": "https://fonts.google.com/specimen/Courier+Prime",
+    "file": "https://raw.githubusercontent.com/google/fonts/main/ofl/courierprime/CourierPrime-Bold.ttf",
+    "license": "OFL-1.1",
+    "ai_check": "Typeface drawn for screenwriters, published 2013",
+    "sha256": "ff1f38786c849d1c41fa8e447960abdb2bd75fdfb0cfcdeb524fad65a5af3638",
+    "downloaded": "2026-10-22"
+  },
+  {
+    "kind": "font",
+    "source": "url",
+    "origin": "library",
+    "modifications": [],
+    "id": "special_elite",
+    "title": "Special Elite",
+    "authors": [
+      "Astigmatic"
+    ],
+    "source_url": "https://fonts.google.com/specimen/Special+Elite",
+    "file": "https://raw.githubusercontent.com/google/fonts/main/apache/specialelite/SpecialElite-Regular.ttf",
+    "license": "Apache-2.0",
+    "ai_check": "Typeface made from worn typewriter type, published 2011",
+    "sha256": "a776fcb4ceb8bdf03e2967688ebdad42680de5b91a7e62c17e718ae212d14bc4",
+    "downloaded": "2026-10-22"
+  },
+  {
+    "id": "paper_001",
+    "kind": "texture",
+    "title": "Paper 001",
+    "authors": [
+      "Lennart Demes (ambientCG)"
+    ],
+    "source": "ambientcg",
+    "source_url": "https://ambientcg.com/view?id=Paper001",
+    "license": "CC0-1.0",
+    "origin": "scan",
+    "ai_check": "ambientCG material approximated from a photograph of real paper",
+    "maps": [
+      "diff"
+    ],
+    "max_texture": 1024,
+    "modifications": [
+      "tinted warm and baked with paper_003 into the dossier's sheet texture (scripts/desk-paper.mjs)"
+    ],
+    "sha256": "21b3b955d9cd8bd6c83ebac6a71f7dcbaea819d28b6a0f82a1a3805f67793dcb",
+    "downloaded": "2026-11-11"
+  },
+  {
+    "id": "paper_003",
+    "kind": "texture",
+    "title": "Paper 003",
+    "authors": [
+      "Lennart Demes (ambientCG)"
+    ],
+    "source": "ambientcg",
+    "source_url": "https://ambientcg.com/view?id=Paper003",
+    "license": "CC0-1.0",
+    "origin": "scan",
+    "ai_check": "ambientCG material approximated from a photograph of real paper",
+    "maps": [
+      "diff"
+    ],
+    "max_texture": 1024,
+    "modifications": [
+      "used faintly, as handling creases baked into the dossier's sheet texture"
+    ],
+    "sha256": "7939efd9c04e3da41341386730ad657034ed19dafc2211bad80e6f5182e89a2c",
+    "downloaded": "2026-11-11"
+  },
+  {
+    "id": "paper_006",
+    "kind": "texture",
+    "title": "Paper 006",
+    "authors": [
+      "Lennart Demes (ambientCG)"
+    ],
+    "source": "ambientcg",
+    "source_url": "https://ambientcg.com/view?id=Paper006",
+    "license": "CC0-1.0",
+    "origin": "scan",
+    "ai_check": "ambientCG material approximated from a photograph of real paper",
+    "maps": [
+      "diff"
+    ],
+    "max_texture": 1024,
+    "modifications": [
+      "recoloured to manila and baked into the dossier's folder texture (scripts/desk-paper.mjs)"
+    ],
+    "sha256": "b307a70907ee1b01a7132ed16142df140180c13b6132955907ad00861720f839",
+    "downloaded": "2026-11-12"
+  },
+  {
+    "id": "book_encyclopedia_set_01",
+    "kind": "model",
+    "title": "Book Encyclopedia Set 01",
+    "authors": [
+      "John Malcolm"
+    ],
+    "source": "polyhaven",
+    "source_url": "https://polyhaven.com/a/book_encyclopedia_set_01",
+    "license": "CC0-1.0",
+    "origin": "library",
+    "ai_check": "Poly Haven states all assets are made by people, not generative AI",
+    "max_texture": 512,
+    "modifications": [
+      "mesh simplified to about 35% of its triangles for the web",
+      "scaled to 0.215 m tall to fit between the shelves"
+    ],
+    "sha256": "6c8c76560ca8e3c28516c0831545db903111bea069ce569579c2848a2e781bed",
+    "downloaded": "2026-11-12",
+    "simplify": 0.35
+  },
+  {
+    "id": "brass_vase_03",
+    "kind": "model",
+    "title": "Brass Vase 03",
+    "authors": [
+      "Rico Cilliers"
+    ],
+    "source": "polyhaven",
+    "source_url": "https://polyhaven.com/a/brass_vase_03",
+    "license": "CC0-1.0",
+    "origin": "library",
+    "ai_check": "Poly Haven states all assets are made by people, not generative AI",
+    "max_texture": 512,
+    "modifications": [],
+    "sha256": "a66857b95d7694e19d4b7cad973213c754d08f67fb93f11434a8e848c2451cbe",
+    "downloaded": "2026-11-12"
+  },
+  {
+    "id": "lambis_shell",
+    "kind": "model",
+    "title": "Lambis Shell",
+    "authors": [
+      "Kuutti Siitonen"
+    ],
+    "source": "polyhaven",
+    "source_url": "https://polyhaven.com/a/lambis_shell",
+    "license": "CC0-1.0",
+    "origin": "library",
+    "ai_check": "Poly Haven states all assets are made by people, not generative AI",
+    "max_texture": 512,
+    "modifications": [],
+    "sha256": "f5e97ac15923a8cccd1bfb5708eec79521a4a10e60b92e387db01e5fd59e92c4",
+    "downloaded": "2026-11-12"
+  },
+  {
+    "id": "potted_plant_04",
+    "kind": "model",
+    "title": "Potted Plant 04",
+    "authors": [
+      "James Ray Cock"
+    ],
+    "source": "polyhaven",
+    "source_url": "https://polyhaven.com/a/potted_plant_04",
+    "license": "CC0-1.0",
+    "origin": "library",
+    "ai_check": "Poly Haven states all assets are made by people, not generative AI",
+    "max_texture": 512,
+    "modifications": [],
+    "sha256": "3f9502718be285a6614622774a6b19fd9014e2d5e05e6a08f822321dd157e6d5",
+    "downloaded": "2026-11-12"
+  },
+  {
+    "id": "horse_statue_01",
+    "kind": "model",
+    "title": "Horse Statue 01",
+    "authors": [
+      "Rico Cilliers"
+    ],
+    "source": "polyhaven",
+    "source_url": "https://polyhaven.com/a/horse_statue_01",
+    "license": "CC0-1.0",
+    "origin": "library",
+    "ai_check": "Poly Haven states all assets are made by people, not generative AI",
+    "max_texture": 512,
+    "modifications": [
+      "mesh simplified to about half its triangles for the web"
+    ],
+    "sha256": "15e7bc37722474df74ef0a442134332e626739b444fdaede134d4bbbf3a004d8",
+    "downloaded": "2026-11-12",
+    "simplify": 0.5
+  },
+  {
+    "id": "standing_picture_frame_01",
+    "kind": "model",
+    "title": "Standing Picture Frame 01",
+    "authors": [
+      "James Ray Cock"
+    ],
+    "source": "polyhaven",
+    "source_url": "https://polyhaven.com/a/standing_picture_frame_01",
+    "license": "CC0-1.0",
+    "origin": "library",
+    "ai_check": "Poly Haven states all assets are made by people, not generative AI",
+    "max_texture": 512,
+    "modifications": [],
+    "sha256": "78b7f1319de7c425e389c0bfaacb2d66d3aa4109a33327857c194b28c86191f6",
+    "downloaded": "2026-11-12"
+  },
+  {
+    "id": "alarm_clock_01",
+    "kind": "model",
+    "title": "Alarm Clock 01",
+    "authors": [
+      "Yann Kervran",
+      "James Ray Cock"
+    ],
+    "source": "polyhaven",
+    "source_url": "https://polyhaven.com/a/alarm_clock_01",
+    "license": "CC0-1.0",
+    "origin": "library",
+    "ai_check": "Poly Haven states all assets are made by people, not generative AI",
+    "max_texture": 512,
+    "modifications": [],
+    "sha256": "d721cd6a93da98ffe1097fe6089b58ff8a83373b6f8c4f16e3dfdd9080d350e6",
+    "downloaded": "2026-11-12"
+  },
+  {
+    "id": "seadogs_compass",
+    "kind": "model",
+    "title": "Seadogs Compass",
+    "authors": [
+      "Benny Weimer"
+    ],
+    "source": "polyhaven",
+    "source_url": "https://polyhaven.com/a/seadogs_compass",
+    "license": "CC0-1.0",
+    "origin": "library",
+    "ai_check": "Poly Haven states all assets are made by people, not generative AI",
+    "max_texture": 512,
+    "modifications": [],
+    "sha256": "cb69e292865acd733de60570f92f35554a829143e19785edd9722e2d3338a4bf",
+    "downloaded": "2026-11-12"
+  },
+  {
+    "id": "vintage_binocular",
+    "kind": "model",
+    "title": "Vintage Binoculars",
+    "authors": [
+      "Luke"
+    ],
+    "source": "polyhaven",
+    "source_url": "https://polyhaven.com/a/vintage_binocular",
+    "license": "CC0-1.0",
+    "origin": "library",
+    "ai_check": "Poly Haven states all assets are made by people, not generative AI",
+    "max_texture": 512,
+    "modifications": [],
+    "sha256": "c89aab9472be48dfb5167ce9df3ae849da43903b6c0c6eeb6aa96a490e48fe44",
+    "downloaded": "2026-11-12"
+  },
+  {
+    "id": "book_quantum_integrals",
+    "kind": "model",
+    "title": "The Philosophy Of Quantum Integrals",
+    "authors": [
+      "Coozy (GameDevNick)"
+    ],
+    "source": "sketchfab",
+    "source_url": "https://sketchfab.com/3d-models/the-philosophy-of-quantum-integrals-54f1b881d0a64bb9a4611f35849fdf2c",
+    "license": "CC-BY-4.0",
+    "origin": "library",
+    "ai_check": "Published 2022 by the maker of the room's mug, before generative mesh tools; hand-built low-poly textbook",
+    "modifications": [],
+    "sha256": "4bb7485bb347aea0a8f131deecc42912ec76337dbb9da4d3b79e241202ee755e",
+    "downloaded": "2026-11-12"
+  },
+  {
+    "id": "book_quantum_mathematics",
+    "kind": "model",
+    "title": "Quantum Mathematics: The Theoretical Minimum",
+    "authors": [
+      "Coozy (GameDevNick)"
+    ],
+    "source": "sketchfab",
+    "source_url": "https://sketchfab.com/3d-models/quantum-mathematics-the-theoretical-minimum-66b2001de6ba4b4a81e69aa762d7631c",
+    "license": "CC-BY-4.0",
+    "origin": "library",
+    "ai_check": "Published 2022 by the maker of the room's mug, before generative mesh tools; hand-built low-poly textbook",
+    "modifications": [],
+    "sha256": "dbbcac39b31f58c328bd99fa2211c7bb74bd79045e9df5d6dcc44b43c26cd08c",
+    "downloaded": "2026-11-12"
+  },
+  {
+    "id": "book_leather",
+    "kind": "model",
+    "title": "Leather Book",
+    "authors": [
+      "Smoggybeard"
+    ],
+    "source": "sketchfab",
+    "source_url": "https://sketchfab.com/3d-models/leather-book-7d941f84245d4bafb7e94852aec9f02d",
+    "license": "CC-BY-4.0",
+    "origin": "library",
+    "ai_check": "Published 2020, before generative mesh tools; modelled in Blender, textured in Substance Painter",
+    "modifications": [],
+    "sha256": "d48a4450399203d572ceee03d7edf2229164a1efe28cc318a44d0eef60b20413",
+    "downloaded": "2026-11-12"
+  },
+  {
+    "id": "book_blithedale_romance",
+    "kind": "model",
+    "title": "The Blithedale Romance by Nathaniel Hawthorne",
+    "authors": [
+      "Emma.Dietrich"
+    ],
+    "source": "sketchfab",
+    "source_url": "https://sketchfab.com/3d-models/the-blithedale-romance-by-nathaniel-hawthorne-93c7823382044a6489aa8e2cd160ae9f",
+    "license": "CC-BY-4.0",
+    "origin": "library",
+    "ai_check": "Published 2022 as a model of a real 1897 copy, before generative mesh tools",
+    "modifications": [],
+    "sha256": "638266c7af1629503da04e5e9c1d0a26d86edd76687dbbb334d8e7ddde4109bc",
+    "downloaded": "2026-11-12"
+  }
+]
