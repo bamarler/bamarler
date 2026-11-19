@@ -3,6 +3,13 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
+  // the desk was built at /desk before it became the home page
+  async redirects() {
+    return [
+      { source: '/desk', destination: '/', permanent: false },
+      { source: '/desk/credits', destination: '/credits', permanent: false },
+    ]
+  },
   images: {
     remotePatterns: [
       {

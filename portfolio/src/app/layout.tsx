@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
-import { cn } from '@/lib/utils'
-import SmoothScroll from '@/components/layout/SmoothScroll'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const spaceGrotesk = Space_Grotesk({
@@ -97,18 +95,9 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={cn(
-          'min-h-screen font-sans antialiased',
-          inter.variable,
-          spaceGrotesk.variable,
-          jetbrainsMono.variable,
-        )}
+        className={`min-h-screen font-sans antialiased ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
       >
-        <SmoothScroll>
-          <div className="relative flex min-h-screen flex-col overflow-x-hidden">
-            {children}
-          </div>
-        </SmoothScroll>
+        {children}
       </body>
     </html>
   )
